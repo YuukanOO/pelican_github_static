@@ -50,21 +50,19 @@ Once configured, you will be able to use the `github_repos` context variable in 
 If you need to split your repos between your own project and project you contributed to, use the `github_user_repos` and `github_forked_repos` context variable.
 
 ```
-{% if "projects.md" in page.source_path %}
-    <h2>My projects</h2>
-    <ul>
-        {% for repo in github_user_repos %}
-        <li><a href="{{ repo.html_url }}">{{ repo.full_name }}</a>: {{ repo.description }}</li>
-        {% endfor %}
-    </ul>
+<h2>My projects</h2>
+<ul>
+    {% for repo in github_user_repos %}
+    <li><a href="{{ repo.html_url }}">{{ repo.full_name }}</a>: {{ repo.description }}</li>
+    {% endfor %}
+</ul>
 
-    <h2>Projects I contributed to</h2>
-    <ul>
-        {% for repo in github_forked_repos %}
-        <li><a href="{{ repo.html_url }}">{{ repo.full_name }}</a>: {{ repo.description }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+<h2>Projects I contributed to</h2>
+<ul>
+    {% for repo in github_forked_repos %}
+    <li><a href="{{ repo.html_url }}">{{ repo.full_name }}</a>: {{ repo.description }}</li>
+    {% endfor %}
+</ul>
 ```
 
 Basically, it's just an array of [github.Repository.Repository](http://jacquev6.github.io/PyGithub/v1/github_objects/Repository.html#github.Repository.Repository) as returned by the Github API.
