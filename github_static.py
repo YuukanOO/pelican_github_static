@@ -7,7 +7,11 @@ def github_fetch_repos(generator):
     Fetch user repositories and returns a list of repository object as returned
     by the underlying github bridge.
     """
-    generator.context["github_repos"] = [repo for repo in generator.github_instance.get_user().get_repos(type = "public")]
+    all_repos = [repo for repo in generator.github_instance.get_user().get_repos(type = "public")]
+
+    generator.context["github_repos"] = all_repos
+    generator.context["github_user_repos"] = [repo for repo in all_repos if repo.fork == False]
+    generator.context["github_forked_repos"] = [repo for repo in all_repos if repo.fork == True]
 
 def github_initialization(generator):
     """
