@@ -13,6 +13,10 @@ You will need to install the `pygithub` using pip: `pip install pygithub`
 Installation
 ---
 
+Clone this repository using:
+
+`git clone git@github.com:YuukanOO/pelican_github_static.git github_static`
+
 Just enable the plugin in your pelican settings:
 
 ```
